@@ -34,8 +34,8 @@ def main():
     
     sexo = st.sidebar.multiselect("Sexo", options=df["Sexo"].unique(), default=df["Sexo"].unique())
     creche = st.sidebar.multiselect("Código da Creche", options=df["Código da Creche"].unique(), default=df["Código da Creche"].unique())
-    questionario = st.sidebar.selectbox("Questionário", ["SIM", "NAO"])
-    avaliacao = st.sidebar.selectbox("Testes", ["SIM", "NAO"])
+    questionario = st.sidebar.selectbox("Questionário", ["SIM", "NÃO"])
+    avaliacao = st.sidebar.selectbox("Testes", ["SIM", "NÃO"])
 
     # Aplicar os filtros
     df_filtrado = df[(df["Sexo"].isin(sexo)) & 
@@ -63,6 +63,8 @@ def main():
         # Centralizar o título do gráfico
         fig_barras.update_layout(title_x=0.3)  
         st.plotly_chart(fig_barras)
+
+        df_filtrado['Idade'] = df_filtrado['Idade'].astype(str)+ ' anos'
 
         # Gráfico de pizza para distribuição da idade por dias de uso
         fig_pizza = px.pie(df_filtrado, names='Idade', values='Dias de uso', 
