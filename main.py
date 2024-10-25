@@ -18,7 +18,7 @@ def main():
     st.markdown(
         """
         <h1 style='text-align: center; background-color: purple; border-radius: 10px; padding: 10px; color: white;'>
-        Sunrise Nordeste Brasil
+        SUNRISE Nordeste Brasil
         </h1>
         """,
         unsafe_allow_html=True
